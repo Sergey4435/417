@@ -5,4 +5,4 @@ print("Искомые буквы: ")
 a = tuple(a)
 c = sorted(a)
 for i in c:
-    print( i, end=" ")
+    print(i, end=" ")
