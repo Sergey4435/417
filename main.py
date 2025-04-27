@@ -2961,11 +2961,22 @@ reg = r"я"
 # *?, +?, ??
 # {m,n}?, {,n}?, {m,}?
 
-s1 = "12 сентября 2025 года 456543131"
-# reg1 = r"\d{2}"
-# reg1 = r"\d{2,4}?"
-# reg1 = r"\d{,4}?"
-reg1 = r"\d{2,}?"
-print(re.findall(reg1, s1))
+# s1 = "12 сентября 2025 года 456543131"
+# # reg1 = r"\d{2}"
+# # reg1 = r"\d{2,4}?"
+# # reg1 = r"\d{,4}?"
+# reg1 = r"\d{2,}?"
+# print(re.findall(reg1, s1))
 
 
+f = open("text2.txt", "w")
+f.write("замени строки\nзаменить сроку\n")
+f.close()
+
+f = open("text2.txt")
+read_file = f.readlines()
+print(read_file)
+read_file[1] = "Htllo"
+print(read_file)
+
+f.close()
