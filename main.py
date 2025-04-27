@@ -2844,30 +2844,30 @@
 # print("Работа на новом устройстве")
 
 import re
+from os import write
 
-
-s = "Я ищу совпадения в 2025 году. \"И я их найду в 2 счё-та\". [6789]. H.ello_World."
-# reg = "\\."
-# reg = r"\."
-# reg = r"[205]"
-# reg = r"[12][0-9][0-9][0-9]"
-# reg = r"[А-яЁё]"
-# reg = r"[A-Z\[a-z\].-]"
-# reg = r"[^0-9]"
-# reg = r"\d"
-# reg = r"\D"
-# reg = r"\s"
-# reg = r"\S"
-# reg = r"\w"
-# reg = r"\W"
-# reg = r"\AЯ ищу"
-# reg = r"World.\Z"
-# reg = r"сов\B"
-# reg = r"\w+"
-# reg = r"\w*"
-# reg = r"^\w+\s\w+"
-# reg = r"\w+\.$"
-reg = r"я"
+# s = "Я ищу совпадения в 2025 году. \"И я их найду в 2 счё-та\". [6789]. H.ello_World."
+# # reg = "\\."
+# # reg = r"\."
+# # reg = r"[205]"
+# # reg = r"[12][0-9][0-9][0-9]"
+# # reg = r"[А-яЁё]"
+# # reg = r"[A-Z\[a-z\].-]"
+# # reg = r"[^0-9]"
+# # reg = r"\d"
+# # reg = r"\D"
+# # reg = r"\s"
+# # reg = r"\S"
+# # reg = r"\w"
+# # reg = r"\W"
+# # reg = r"\AЯ ищу"
+# # reg = r"World.\Z"
+# # reg = r"сов\B"
+# # reg = r"\w+"
+# # reg = r"\w*"
+# # reg = r"^\w+\s\w+"
+# # reg = r"\w+\.$"
+# reg = r"я"
 # reg = r"20*"
 # print(re.findall(reg, s))  # возвращает список, содержащий все совпадения
 # print(re.search(reg, s))  # месторасположение первого совпадения с шаблоном
@@ -2969,14 +2969,349 @@ reg = r"я"
 # print(re.findall(reg1, s1))
 
 
-f = open("text2.txt", "w")
-f.write("замени строки\nзаменить сроку\n")
-f.close()
+# s = "Петр, Ольга и Виталий отлично учатся!"
+# reg = "Петр|Ольга|Виталий|Виктор"
+# print(re.findall(reg, s))
 
-f = open("text2.txt")
-read_file = f.readlines()
-print(read_file)
-read_file[1] = "Htllo"
-print(read_file)
+# s = "int = 4, float = 4.0f, double = 8.0, int"
+# # reg = r"int\s*=\s*\d[.\w+]*|float\s*=\s*\d[.\w+]*"
+# # reg = r"(?:int|float)\s*=\s*\d[.\w+]*"
+# reg = r"((int|float)\s*=\s*(\d[.\w+]*))"
+# print(re.findall(reg, s))
+# print(re.search(reg, s).groups(3))
+# m = re.search(reg, s)
+# print(m[0])
+# print(m[1])
+# print(m[2])
+# print(m[3])
 
-f.close()
+
+# s = "5 + 7*2 - 4"
+# reg = r"\s*([+*-])\s*"
+# print(re.split(reg, s))
+
+# a = "31-10-2021"
+# pattern = r"(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])"
+# print(re.findall(pattern, a))
+# print(re.search(pattern, a))
+
+# s = "Самолет прилетает 10/23/2025. Будет рады вас видеть после 10/24/2025."
+# reg = r"(\d{2})/(\d{2})/(\d{4})"
+# print(re.sub(reg, r"\2.\1.\3", s))
+
+
+# Рекурсия
+
+# def elevator(n):  # 0
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print("=>", n)
+#     elevator(n - 1)  # стек: 5 4 3 2 1
+#     print(n, end=" ")
+#
+#
+# n1 = 5
+# elevator(n1)
+
+
+# def sum_list(lst):
+#     res = 0
+#     for i in lst:
+#         res += i
+#     return res
+
+# def sum_list(lst):  # [9]
+#     if len(lst) == 1:
+#         return lst[0]  # 9
+#     else:
+#         return lst[0] + sum_list(lst[1:])  # 1 + 3 + 5 + 7 +
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))  # 25
+
+
+# def to_str(n, base):  # n = 15, base = 16
+#     convert = "0123456789ABCDEF"
+#     if n < base:
+#         return convert[n]  # F
+#     else:
+#         return to_str(n // base, base) + convert[n % base]  # convert[14]  =>  E
+#
+#
+# print(to_str(254, 16))  # FE
+
+# names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
+# print(names[0])
+# print(isinstance(names[0], list))
+# print(names[1])
+# print(isinstance(names[1], list))
+# print(names[1][1])
+# print(isinstance(names[1][1], list))
+# print(names[1][1][0])
+# print(isinstance(names[1][1][0], list))
+
+# names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
+#
+#
+# def count_item(item_list):
+#     count = 0
+#     for item in item_list:
+#         if isinstance(item, list):
+#             count += count_item(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_item(names))
+
+# Файлы
+
+# f = open("text.txt")
+# f = open(r"E:\Python417\417\text.txt")
+# print(f)
+# print(*f)
+# print(f.name)
+# print(f.mode)
+# print(f.encoding)
+# f.close()
+# print(f.closed)
+
+# f = open("text.txt", "r")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+
+# f = open("text1.txt", "w")
+# f.write("This is line1\nThis is line2\nThis is line3\n")
+# f.close()
+
+
+# f = open("text1.txt", "r")
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+# f.close()
+
+
+# f = open("text1.txt", "r")
+# print(f.readlines(26))
+# print(f.readlines())
+# f.close()
+
+
+# f = open("text1.txt", "r")
+# for line in f:
+#     print(line)
+# f.close()
+
+
+# f = open("xyz.txt", "w")
+# f.write("Hello\nWorld")
+# f.close()
+
+
+# lines = ["This is line1\n", "This is line2\n", "This is line3\n"]
+# f = open("xyz.txt", "a")
+# # f.write("\nNew text")
+# f.writelines(lines)
+# f.close()
+
+# f = open("xyz.txt", "w")
+# lst = [str(i) for i in range(10, 1000, 10)]
+# print(lst)
+# for ind in lst:
+#     f.write(ind + '\t')
+# f.close()
+
+
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nИзменить строку в списке;\nЗаписать список в файл;\n")
+# f.close()
+#
+# f = open("text2.txt", "r")
+# read_file = f.readlines()
+# print(read_file)
+# read_file[1] = "Hello World\n"
+# print(read_file)
+# f.close()
+#
+# f = open("text2.txt", "w")
+# f.writelines(read_file)
+# f.close()
+
+# f = open("text.txt")
+# print(f.read(3))
+# print(f.tell())  # возвращает позицию условного курсора в файле
+# print(f.seek(1))  # перемещает условный курсор в заданную позицию
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+# f = open("text4.txt", "a+")
+# print(f.write("I am learning Python"))
+# print(f.seek(3))
+# print(f.write("-new string-"))
+# print(f.tell())
+# f.close()
+
+# f = open("text7.txt", "r+")
+# f.read()
+# f.close()
+
+
+# with open("text.txt", "w+") as f:
+#     print(f.write("0123456789"))
+# print(f.closed)
+
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
+#
+#
+# def get_line(lt):
+#     lt = list(map(str, lt))
+#     print(lt)
+#     return " ".join(lt)  # "4.5 2.8 3.9 1.0 0.3 4.33 7.777"
+#
+#
+# with open("res.txt", "w") as f:
+#     f.write(get_line(lst))
+#
+# print("Файл создан")
+
+
+# with open("res.txt", "r") as f:
+#     num = f.read()
+#
+# print(num)
+# num_list = list(map(float, num.split()))
+# print(num_list)
+# res = 1
+# for i in num_list:
+#     res *= i
+#
+# print(res)
+
+# file_name = "res1.txt"
+#
+# with open(file_name, "w") as f:
+#     f.write("Файл именованная область данных на носителе информации, используемая как базовый объект"
+#             " с данными в операционных системах.")   # взаимодействия
+#
+#
+# def longest_words(file):
+#     with open(file, "r") as text:
+#         w = text.read().split()
+#         print(w)
+#         res = len(max(w, key=len))
+#         print(res)
+#         lst = [word for word in w if len(word) == res]
+#         if len(lst) == 1:
+#             return lst[0]
+#         return lst
+#
+#
+# print(longest_words(file_name))
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10"
+#
+# with open("one.txt", "w") as f:
+#     f.write(text)
+
+
+# with open("one.txt", "r") as fr, open("two.txt", "w") as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+
+# Модуль OS и OS.PATH
+
+# import os
+
+# print(os.getcwd())
+# print(os.listdir())
+# print(os.listdir("folder"))
+# os.mkdir("folder1")
+# os.makedirs("nested1/nested2/nested3")
+# os.rmdir("folder1")
+# os.remove("xyz.txt")
+# os.rename("two.txt", "two_new.txt")
+# os.rename("two_new.txt", "folder/two_new_1.txt")
+# os.renames("text6.txt", "test/text6_1.txt")
+
+# for root, dirs, files in os.walk("nested1", topdown=True):
+#     print("Root:", root)
+#     print("\tDirs:", dirs)
+#     print("\tFiles:", files)
+
+
+# def remove_empty_dirs(root_tree):
+#     print(f"Удаление пустых директорий в ветви {root_tree}")
+#     print("-" * 50)
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f"Директория {root} удалена")
+#     print("-" * 50)
+#
+#
+# remove_empty_dirs("nested1")
+
+
+# print(os.listdir("nested1/folder1"))
+
+# import os
+# import os.path
+
+# print(os.path.split(r"nested1\nested2\nested3\text5.txt"))
+# print(os.path.join("nested1", "nested2", "nested3", "text5.txt"))
+# print(os.path.join("nested2", r"D:\nested1", "nested3", "text5.txt"))
+# print(os.path.isdir(r"nested1\nested2\nested3"))
+# print(os.path.isfile(r"nested1\nested2\nested3\text5.txt"))
+
+
+import os
+
+# dirs = [r"Work\F1", r"Work\F2\F21"]
+# for d in dirs:
+#     os.makedirs(d)
+
+files = {
+    "Work": ["w.txt"],
+    r"Work\F1": ["f11.txt", "f12.txt", "f13.txt"],
+    r"Work\F2\F21": ["f211.txt", "f212.txt"]
+}
+
+for d, f in files.items():
+    for file in f:
+        file_path = os.path.join(d, file)
+        open(file_path, "w").close()
+
+files_with_text = [r"Work\w.txt", r"Work\F1\f12.txt", r"Work\F2\F21\f211.txt", r"Work\F2\F21\f212.txt"]
+
+for file in files_with_text:
+    with open(file, "w") as f:
+        f.write(f"Какой-то текст в файле {file}")
+
+
+def print_tree(root, topdown):
+    print(f"Обход {root} {"сверху вниз" if topdown else "снизу вверх"}")
+    for root, dirs, my_file in os.walk(root, topdown):
+        print(root)
+        print(dirs)
+        print(my_file)
+    print("-" * 50)
+
+
+print_tree("Work", False)
+print_tree("Work", True)
+
+
+# Work\w.txt
+# Work\F1\f11.txt
+# Work\F1\f12.txt
+# Work\F1\f13.txt
+# Work\F2\F21\f211.txt
+# Work\F2\F21\f212.txt
