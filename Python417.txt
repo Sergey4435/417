@@ -1,0 +1,179 @@
+DOM - Document Object Model
+
+
+nodeValue - значение ноды
+nodeName - имя ноды
+nodeType - тип ноды
+
+AnyDesk
+
+file:///E:/Python417/js/test.py?
+
+file:///E:/Python417/js/index.html?#test.py
+
+file:///E:/Python417/js/index.html?name1=Igor#test.py
+file:///E:/Python417/js/index.html?name1=Olga#test.py
+file:///E:/Python417/js/index.html?name1=Igor&psw=123456#test.py
+file:///E:/Python417/js/index.html#test.py
+
+file:///E:/Python417/js/index.html?login=admin&password1=123456&password2=123#text.py
+file:///E:/Python417/js/index.html?login=igor&password1=qwerty&password2=qwe#text.py
+
+0-9A-F
+
+JSON
+
+DOM (Browser Object Model) - Объектная модель Браузера
+
+
+Win + R -> cmd
+
+python
+py
+
+
+print("Hello")
+
+1.py
+
+print("Hello, Python")
+
+cmd
+
+python 1.py
+
+IDLE
+
+Типы данных:
+int - целочисленные значения
+float - вещественные числа
+str - строковое значение
+bool - булевый тип (True, False)
+
+
+False => "", 0, 0.0, False, None
+
+1) от 0 по 9
+2) 
+ворона - 1
+вороны - 2, 3, 4
+ворон - 5, 6, 7, 8, 9, 0
+
+копейка - 1, 21, 31, 91
+копейки - 2, 22, 32, 82
+копеек - 5, 55, 75, 95
+
+Исключение: 11, , ,
+
+Типы данных:
+ - Неизменяемые:
+	- str
+	- int
+	- float
+	- bool
+	- tuple
+	- frozenset
+ - Изменяемые:
+    - list
+	- set {1,2,3}
+	- dict {1:1,2:2,3:3}
+	
+	
+https://git-scm.com/
+
+
+git --version
+- просмотр версии
+
+
+git init
+- инициализация репозитория (только один раз)
+
+git status
+- показывает состояние репозитория
+
+git add -A
+		-all
+		main.py
+		.
+- добавляем файлы в репозиторий отслежуемые git
+
+git config --global user.name
+- просмотр имени в системе
+
+git config --global user.name "new_user"
+		   --local
+	
+git config --global user.email
+
+git config --global user.email "test@mail.ru"
+
+
+git commit -m "first commit"
+- создание контрольной точки
+
+
+.gitignore
+
+git commit -m "git ignore"
+
+git branch
+- просмотр веток
+
+git branch test
+- создание ветки
+
+git branch -D test
+- удаление ветки
+
+
+git branch readme
+
+git checkout readme
+- переход на ветку
+
+readme.md
+
+git checkout master
+
+
+master    ->     readme
+  main.py           main.py
+                    readme.md		
+
+git merge readme
+- совмещение веток					
+
+git branch -D readme
+
+git login
+- история коммитов
+
+токен
+
+Win + R => control
+
+Диспечер учетных данных
+
+
+https://github.com
+Helen-prog
+токен
+
+git remote add origin https://github.com/Helen-prog/Python417.git
+git push -u origin master
+
+95344b8f58b7c850351cde6b6e985bfb97f6aaef
+
+0) git status
+1) git add .
+2) git commit -m "change main"
+3) git push
+- отправляем изменения с локального репозитория на удаленный 
+
+git clone https://github.com/Helen-prog/Python417.git
+
+git pull
+- забирает изменения с удаленного репозитория на локальный
+
+
