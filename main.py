@@ -3127,21 +3127,23 @@ from os import write
 #     f.write(ind + '\t')
 # f.close()
 
+import os
 
-# f = open("text2.txt", "w")
-# f.write("Замена строки в текстовом файле;\nИзменить строку в списке;\nЗаписать список в файл;\n")
-# f.close()
-#
-# f = open("text2.txt", "r")
-# read_file = f.readlines()
-# print(read_file)
-# read_file[1] = "Hello World\n"
-# print(read_file)
-# f.close()
-#
-# f = open("text2.txt", "w")
-# f.writelines(read_file)
-# f.close()
+
+f = open("text2.txt", "w")
+f.write("Замена строки в текстовом файле;\nИзменить строку в списке;\nЗаписать список в файл;\n")
+f.close()
+
+f = open("text2.txt", "r")
+read_file = f.readlines()
+print(read_file)
+read_file[1] = "Hello World\n"
+print(read_file)
+f.close()
+
+f = open("text2.txt", "w")
+f.writelines(read_file)
+f.close()
 
 # f = open("text.txt")
 # print(f.read(3))
@@ -3272,41 +3274,41 @@ from os import write
 # print(os.path.isfile(r"nested1\nested2\nested3\text5.txt"))
 
 
-import os
+# import os
 
 # dirs = [r"Work\F1", r"Work\F2\F21"]
 # for d in dirs:
 #     os.makedirs(d)
 
-files = {
-    "Work": ["w.txt"],
-    r"Work\F1": ["f11.txt", "f12.txt", "f13.txt"],
-    r"Work\F2\F21": ["f211.txt", "f212.txt"]
-}
-
-for d, f in files.items():
-    for file in f:
-        file_path = os.path.join(d, file)
-        open(file_path, "w").close()
-
-files_with_text = [r"Work\w.txt", r"Work\F1\f12.txt", r"Work\F2\F21\f211.txt", r"Work\F2\F21\f212.txt"]
-
-for file in files_with_text:
-    with open(file, "w") as f:
-        f.write(f"Какой-то текст в файле {file}")
-
-
-def print_tree(root, topdown):
-    print(f"Обход {root} {"сверху вниз" if topdown else "снизу вверх"}")
-    for root, dirs, my_file in os.walk(root, topdown):
-        print(root)
-        print(dirs)
-        print(my_file)
-    print("-" * 50)
-
-
-print_tree("Work", False)
-print_tree("Work", True)
+# files = {
+#     "Work": ["w.txt"],
+#     r"Work\F1": ["f11.txt", "f12.txt", "f13.txt"],
+#     r"Work\F2\F21": ["f211.txt", "f212.txt"]
+# }
+#
+# for d, f in files.items():
+#     for file in f:
+#         file_path = os.path.join(d, file)
+#         open(file_path, "w").close()
+#
+# files_with_text = [r"Work\w.txt", r"Work\F1\f12.txt", r"Work\F2\F21\f211.txt", r"Work\F2\F21\f212.txt"]
+#
+# for file in files_with_text:
+#     with open(file, "w") as f:
+# #         f.write(f"Какой-то текст в файле {file}")
+#
+#
+# def print_tree(root, topdown):
+#     print(f"Обход {root} {"сверху вниз" if topdown else "снизу вверх"}")
+#     for root, dirs, my_file in os.walk(root, topdown):
+#         print(root)
+#         print(dirs)
+#         print(my_file)
+#     print("-" * 50)
+#
+#
+# print_tree("Work", False)
+# print_tree("Work", True)
 
 
 # Work\w.txt
